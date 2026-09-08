@@ -1,0 +1,4 @@
+/ai-filter
+*.exe
+*.test
+dist/
