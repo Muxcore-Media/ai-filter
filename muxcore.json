@@ -1,7 +1,7 @@
 {
   "name": "AI Filter",
   "description": "Admin-configurable AI content filter: bleep words and remove scene types",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Muxcore-Media",
   "roles": [
     "ai"
