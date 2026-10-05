@@ -9,12 +9,12 @@ import (
 	"os"
 	"sync"
 
+	manifest "github.com/Muxcore-Media/ai-filter"
 	"github.com/Muxcore-Media/contracts-ai/infer"
 	"github.com/Muxcore-Media/core/pkg/contracts"
+	modulesdk "github.com/Muxcore-Media/core/sdk/go/module"
 	"google.golang.org/grpc"
 )
-
-const moduleVersion = "0.1.0"
 
 type Module struct {
 	id, grpcAddr, httpAddr string
@@ -55,7 +55,7 @@ func New(cfg Config) *Module {
 
 func (m *Module) Info() contracts.ModuleInfo {
 	return contracts.ModuleInfo{
-		ID: m.id, Name: "AI Filter", Version: moduleVersion,
+		ID: m.id, Name: "AI Filter", Version: modulesdk.ManifestVersion(manifest.ManifestJSON),
 		Roles: []string{"ai"}, Description: "Admin-configurable AI content filter: bleep words and remove scene types",
 		Author: "Muxcore-Media", Capabilities: []string{"ai.filter", "settings"},
 		MinCoreVersion: MinCoreVersion, HTTPAddr: m.grpcAddr,
